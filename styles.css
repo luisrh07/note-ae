@@ -5,7 +5,7 @@
     --paper: #fff8e7;
 }
 
-/* MODO CLARO */
+/* 🌞 MODO CLARO */
 .light {
     --bg: #f2f2f2;
     --text: #111;
@@ -76,10 +76,7 @@ body {
     color: #000;
 }
 
-/* ========================= */
-/* 📜 CARTA REAL (CORREGIDO) */
-/* ========================= */
-
+/* 📜 CARTA */
 .paper {
     position: absolute;
     width: 90%;
@@ -94,21 +91,20 @@ body {
     left: 50%;
     transform: translate(-50%, -50%) scale(0.85);
 
-    /* 🔥 CLAVE DEL FIX */
     opacity: 0;
     visibility: hidden;
 
     transition: all 0.8s ease;
 }
 
-/* CUANDO SE MUESTRA */
+/* CUANDO APARECE */
 .paper.show {
     opacity: 1;
     visibility: visible;
     transform: translate(-50%, -50%) scale(1);
 }
 
-/* CLASE AUXILIAR */
+/* OCULTO */
 .hidden {
     opacity: 0;
     pointer-events: none;
@@ -198,6 +194,45 @@ body {
     to {
         transform: translateY(-110vh) rotate(360deg);
     }
+}
+
+/* ============================= */
+/* 🌞 MEJORAS SOLO EN MODO CLARO */
+/* ============================= */
+
+.light .paper {
+    background: #ffffff;
+
+    /* borde elegante */
+    border: 1px solid rgba(0, 0, 0, 0.08);
+
+    /* sombra suave */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* textura ligera */
+.light .paper::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.02),
+        transparent 40%,
+        rgba(0,0,0,0.02)
+    );
+    border-radius: 12px;
+    pointer-events: none;
+}
+
+/* mejor contraste */
+.light .message {
+    color: #222;
+}
+
+/* título más elegante */
+.light .title {
+    color: #c59d2f;
 }
 
 /* RESPONSIVE */
