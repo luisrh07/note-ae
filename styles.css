@@ -1,58 +1,74 @@
 body {
     margin: 0;
-    height: 100vh;
     font-family: 'Montserrat', sans-serif;
     background: #000;
-    color: #f5f5f5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+    color: white;
+    overflow-x: hidden;
 }
 
+/* Fondo animado */
 .bg-animation {
-    position: absolute;
+    position: fixed;
     width: 200%;
     height: 200%;
-    background: radial-gradient(#d4af37 1px, transparent 1px);
+    background-image: radial-gradient(#d4af37 1px, transparent 1px);
     background-size: 40px 40px;
-    opacity: 0.07;
-    animation: moveBg 40s linear infinite;
+    opacity: 0.05;
+    animation: move 60s linear infinite;
 }
 
-@keyframes moveBg {
-    from { transform: translate(0, 0); }
-    to { transform: translate(-200px, -200px); }
+@keyframes move {
+    from { transform: translate(0,0); }
+    to { transform: translate(-200px,-200px); }
 }
 
 .container {
-    position: relative;
     max-width: 600px;
-    padding: 40px;
+    margin: auto;
+    padding: 40px 20px;
     text-align: center;
-    border-radius: 20px;
-    background: rgba(255,255,255,0.03);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 0 40px rgba(212,175,55,0.15);
+    animation: fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px);}
+    to { opacity: 1; transform: translateY(0);}
 }
 
 .title {
     font-family: 'Playfair Display', serif;
-    font-size: 2.2em;
     color: #d4af37;
+    font-size: 2.2em;
 }
 
 .title span {
-    color: #fff;
+    color: white;
 }
 
 .subtitle {
     opacity: 0.7;
-    margin-bottom: 20px;
+    margin: 20px 0;
 }
 
 .message p {
+    margin: 15px 0;
     line-height: 1.7;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: aparecer 1s forwards;
+}
+
+.message p:nth-child(1){animation-delay:0.5s;}
+.message p:nth-child(2){animation-delay:1s;}
+.message p:nth-child(3){animation-delay:1.5s;}
+.message p:nth-child(4){animation-delay:2s;}
+.message p:nth-child(5){animation-delay:2.5s;}
+
+@keyframes aparecer {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .highlight {
@@ -60,17 +76,36 @@ body {
     font-weight: bold;
 }
 
-.signature {
-    margin-top: 20px;
-    opacity: 0.7;
+.firma {
+    margin-top: 25px;
+    opacity: 0.6;
 }
 
-button {
-    margin-top: 25px;
-    padding: 12px 25px;
+/* Botón */
+.btn {
+    margin-top: 30px;
+    padding: 15px 30px;
     border: none;
-    border-radius: 25px;
+    border-radius: 30px;
     background: #d4af37;
-    color: #000;
+    color: black;
     font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #d4af37;
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+    .title {
+        font-size: 1.6em;
+    }
+
+    .message p {
+        font-size: 0.95em;
+    }
 }
