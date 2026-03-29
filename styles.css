@@ -5,6 +5,7 @@
     --paper: #fff8e7;
 }
 
+/* MODO CLARO */
 .light {
     --bg: #f2f2f2;
     --text: #111;
@@ -17,9 +18,10 @@ body {
     background: var(--bg);
     color: var(--text);
     overflow: hidden;
+    transition: 0.4s;
 }
 
-/* BOTÓN */
+/* BOTÓN MODO */
 .mode-toggle {
     position: fixed;
     top: 15px;
@@ -29,6 +31,7 @@ body {
     padding: 10px;
     border-radius: 50%;
     cursor: pointer;
+    z-index: 1000;
 }
 
 /* SOBRE */
@@ -39,17 +42,25 @@ body {
     transform: translate(-50%, -50%);
     width: 220px;
     height: 150px;
-    background: var(--gold);
+    background: linear-gradient(145deg, #d4af37, #b8962e);
     border-radius: 10px;
     cursor: pointer;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    transition: 0.3s;
 }
 
+.envelope:hover {
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
+/* TAPA */
 .flap {
     position: absolute;
     border-left: 110px solid transparent;
     border-right: 110px solid transparent;
     border-bottom: 75px solid #b8962e;
     top: -75px;
+    transform-origin: bottom;
     transition: 0.6s;
 }
 
@@ -57,13 +68,18 @@ body {
     transform: rotateX(180deg);
 }
 
+/* TEXTO SOBRE */
 .letter-preview {
     text-align: center;
     margin-top: 60px;
     font-weight: bold;
+    color: #000;
 }
 
-/* CARTA REAL */
+/* ========================= */
+/* 📜 CARTA REAL (CORREGIDO) */
+/* ========================= */
+
 .paper {
     position: absolute;
     width: 90%;
@@ -71,41 +87,72 @@ body {
     background: var(--paper);
     color: #222;
     padding: 30px;
-    border-radius: 10px;
+    border-radius: 12px;
     box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(0.8);
+    transform: translate(-50%, -50%) scale(0.85);
+
+    /* 🔥 CLAVE DEL FIX */
     opacity: 0;
-    transition: 0.8s;
+    visibility: hidden;
+
+    transition: all 0.8s ease;
 }
 
+/* CUANDO SE MUESTRA */
 .paper.show {
     opacity: 1;
+    visibility: visible;
     transform: translate(-50%, -50%) scale(1);
 }
 
+/* CLASE AUXILIAR */
 .hidden {
-    display: none;
+    opacity: 0;
+    pointer-events: none;
 }
 
-/* TEXTO */
-.title {
-    font-family: 'Playfair Display', serif;
-    color: var(--gold);
-}
-
-.highlight {
-    color: var(--gold);
-}
-
+/* CONTENIDO */
 .container {
     text-align: center;
 }
 
+/* TÍTULO */
+.title {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold);
+    font-size: 28px;
+}
+
+/* SUBTÍTULO */
+.subtitle {
+    margin-top: 10px;
+    opacity: 0.7;
+}
+
+/* MENSAJE */
+.message {
+    margin-top: 20px;
+    line-height: 1.6;
+}
+
+/* TEXTO DESTACADO */
+.highlight {
+    color: var(--gold);
+    font-weight: 600;
+}
+
+/* FIRMA */
+.firma {
+    margin-top: 20px;
+    font-style: italic;
+}
+
 /* PLAYER */
 .player {
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 .player button {
@@ -115,15 +162,22 @@ body {
     margin: 5px;
     border-radius: 10px;
     cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
 }
 
-/* ESTRELLAS */
+.player button:hover {
+    transform: scale(1.1);
+}
+
+/* ✨ ESTRELLAS */
 .star {
     position: fixed;
     width: 2px;
     height: 2px;
     background: white;
-    opacity: 0.7;
+    opacity: 0.6;
+    border-radius: 50%;
     animation: floatStar 6s linear infinite;
 }
 
@@ -132,7 +186,7 @@ body {
     to { transform: translateY(-10vh); }
 }
 
-/* GIRASOLES */
+/* 🌻 GIRASOLES */
 .sunflower {
     position: fixed;
     bottom: -50px;
@@ -148,7 +202,24 @@ body {
 
 /* RESPONSIVE */
 @media (max-width: 480px) {
+
     .paper {
         padding: 20px;
+    }
+
+    .title {
+        font-size: 22px;
+    }
+
+    .envelope {
+        width: 180px;
+        height: 120px;
+    }
+
+    .flap {
+        border-left: 90px solid transparent;
+        border-right: 90px solid transparent;
+        border-bottom: 60px solid #b8962e;
+        top: -60px;
     }
 }
