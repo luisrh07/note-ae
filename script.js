@@ -1,34 +1,18 @@
 let music = document.getElementById("music");
 let playBtn = document.getElementById("playBtn");
-
-let songs = ["music.mp3"];
-let index = 0;
 let playing = false;
 
-music.src = songs[index];
-
+/* PLAY / PAUSE */
 function toggleMusic() {
     if (!playing) {
         music.play();
-        playBtn.innerText = "⏸";
+        playBtn.innerText = "⏸ Pausar";
         playing = true;
     } else {
         music.pause();
-        playBtn.innerText = "▶️";
+        playBtn.innerText = "▶️ Reproducir";
         playing = false;
     }
-}
-
-function nextSong() {
-    index = (index + 1) % songs.length;
-    music.src = songs[index];
-    music.play();
-}
-
-function prevSong() {
-    index = (index - 1 + songs.length) % songs.length;
-    music.src = songs[index];
-    music.play();
 }
 
 /* SOBRE */
@@ -41,7 +25,11 @@ function openEnvelope() {
     setTimeout(() => {
         env.style.display = "none";
         paper.classList.remove("hidden");
-        paper.classList.add("show");
+
+        setTimeout(() => {
+            paper.classList.add("show");
+        }, 50);
+
     }, 700);
 }
 
@@ -55,9 +43,7 @@ setInterval(() => {
     let star = document.createElement("div");
     star.classList.add("star");
     star.style.left = Math.random() * 100 + "vw";
-
     document.body.appendChild(star);
-
     setTimeout(() => star.remove(), 6000);
 }, 200);
 
@@ -67,8 +53,6 @@ setInterval(() => {
     sun.classList.add("sunflower");
     sun.innerHTML = "🌻";
     sun.style.left = Math.random() * 100 + "vw";
-
     document.body.appendChild(sun);
-
     setTimeout(() => sun.remove(), 8000);
 }, 2000);
