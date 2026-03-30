@@ -5,7 +5,7 @@
     --paper: #fff8e7;
 }
 
-/* 🌞 MODO CLARO */
+/* MODO CLARO */
 .light {
     --bg: #f2f2f2;
     --text: #111;
@@ -21,7 +21,7 @@ body {
     transition: 0.4s;
 }
 
-/* BOTÓN MODO */
+/* BOTÓN */
 .mode-toggle {
     position: fixed;
     top: 15px;
@@ -46,14 +46,8 @@ body {
     border-radius: 10px;
     cursor: pointer;
     box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    transition: 0.3s;
 }
 
-.envelope:hover {
-    transform: translate(-50%, -50%) scale(1.05);
-}
-
-/* TAPA */
 .flap {
     position: absolute;
     border-left: 110px solid transparent;
@@ -68,7 +62,6 @@ body {
     transform: rotateX(180deg);
 }
 
-/* TEXTO SOBRE */
 .letter-preview {
     text-align: center;
     margin-top: 60px;
@@ -76,7 +69,7 @@ body {
     color: #000;
 }
 
-/* 📜 CARTA */
+/* CARTA */
 .paper {
     position: absolute;
     width: 90%;
@@ -97,76 +90,59 @@ body {
     transition: all 0.8s ease;
 }
 
-/* CUANDO APARECE */
 .paper.show {
     opacity: 1;
     visibility: visible;
     transform: translate(-50%, -50%) scale(1);
 }
 
-/* OCULTO */
 .hidden {
     opacity: 0;
     pointer-events: none;
 }
 
-/* CONTENIDO */
 .container {
     text-align: center;
 }
 
-/* TÍTULO */
 .title {
     font-family: 'Playfair Display', serif;
     color: var(--gold);
     font-size: 28px;
 }
 
-/* SUBTÍTULO */
 .subtitle {
     margin-top: 10px;
     opacity: 0.7;
 }
 
-/* MENSAJE */
 .message {
     margin-top: 20px;
     line-height: 1.6;
 }
 
-/* TEXTO DESTACADO */
 .highlight {
     color: var(--gold);
     font-weight: 600;
 }
 
-/* FIRMA */
 .firma {
     margin-top: 20px;
     font-style: italic;
 }
 
 /* PLAYER */
-.player {
-    margin-top: 25px;
-}
-
 .player button {
     background: var(--gold);
     border: none;
-    padding: 10px 15px;
-    margin: 5px;
-    border-radius: 10px;
+    padding: 12px 25px;
+    margin-top: 20px;
+    border-radius: 30px;
     cursor: pointer;
     font-size: 16px;
-    transition: 0.3s;
 }
 
-.player button:hover {
-    transform: scale(1.1);
-}
-
-/* ✨ ESTRELLAS */
+/* ESTRELLAS */
 .star {
     position: fixed;
     width: 2px;
@@ -182,7 +158,7 @@ body {
     to { transform: translateY(-10vh); }
 }
 
-/* 🌻 GIRASOLES */
+/* GIRASOLES */
 .sunflower {
     position: fixed;
     bottom: -50px;
@@ -196,21 +172,13 @@ body {
     }
 }
 
-/* ============================= */
-/* 🌞 MEJORAS SOLO EN MODO CLARO */
-/* ============================= */
-
+/* MODO CLARO MEJORADO */
 .light .paper {
     background: #ffffff;
-
-    /* borde elegante */
-    border: 1px solid rgba(0, 0, 0, 0.08);
-
-    /* sombra suave */
+    border: 1px solid rgba(0,0,0,0.08);
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
-/* textura ligera */
 .light .paper::before {
     content: "";
     position: absolute;
@@ -222,22 +190,13 @@ body {
         rgba(0,0,0,0.02)
     );
     border-radius: 12px;
-    pointer-events: none;
 }
 
-/* mejor contraste */
-.light .message {
-    color: #222;
-}
-
-/* título más elegante */
 .light .title {
     color: #c59d2f;
 }
 
-/* RESPONSIVE */
 @media (max-width: 480px) {
-
     .paper {
         padding: 20px;
     }
